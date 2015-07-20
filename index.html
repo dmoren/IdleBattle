@@ -10,18 +10,32 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="jumbotron">
-       <h1>Idle Battle</h1>
-    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <p>money $<span id="money">0</span></p>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul>
+            <il><p class="navbar-text navbar-right">EXP: <span id='charExp'>0</span></p></il>
+            <il><p class="navbar-text navbar-right">Level: <span id='charLevel'>1</span></p></il>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container">
        <div class="row">
-        <p>Level: <span id="level">1</span></p>
-        <p>HP: <span id="hp">5</span></p>
+        <p>Level: <span id="minionLevel">1</span></p>
+        <p>HP: <span id="minionHP">5</span></p>
        </div>
        <div class="row">
-         <button class="btn btn-default" onclick="attack()">Attack</button>
+         <button class="btn btn-default" onclick="attack()">Attack | <span id='dmg'>1</span></button>
+         <button class="btn btn-default" onclick="upgradeMinion()">Upgrade | <span id='upgradeCost'>11</span></button>
        </div>
     </div>
+    <p>required Exp: <span id='requiredExp'>50</span></p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -50,7 +50,7 @@ function checkExp() {
 	//var expRequired = Math.pow(charLevel, charLevel) + lastExpRequirement;
 	//var expRequired = 25*charLevel*(1+charLevel)
 	if (charExp >= expRequired) {
-		dmg = dmg * 2;
+		dmg = Math.floor(charLevel * 1.5);
 		charLevel = charLevel + 1;
 		lastExpRequirement = charExp;
 		expRequired = 25*charLevel*(1+charLevel);

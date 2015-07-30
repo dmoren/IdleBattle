@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Idle Battle</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">
-            <p>money $<span id="money">0</span></p>
-            
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <p class="navbar-text">warriors: <span id="warriorID">0</span></p>
-          <ul>
-            <il><p class="navbar-text navbar-right">EXP: <span id='charExp'>0</span>/<span id='requiredExp'>50</span></p></il>
-            <il><p class="navbar-text navbar-right">Hero level: <span id='charLevel'>1</span></p></il>
-          </ul>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Idle Battle</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+<!-- navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">money $<span id="money">0</span></a>
       </div>
-    </nav>
-    <div class="container">
-       <div class="row">
-        <p>Minion level: <span id="minionLevel">1</span></p>
-        <p>Minion HP: <span id="minionHP">5</span></p>
-       </div>
-       <div class="row">
-         <button class="btn btn-default" onclick="attack()">Attack | <span id='dmg'>1</span></button>
-         <button class="btn btn-default" onclick="upgradeMinion()">Upgrade Minion | <span id='upgradeCost'>11</span></button>
-         <button class="btn btn-default" onclick="buyWarrior()">Buy Warrior | <span id='warriorCostID'>10</span></button>
-       </div>
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a>warriors: <span id="warriorID">0</span></a></li>
+          <li class="active"><a>EXP: <span id='charExp'>0</span>/<span id='requiredExp'>50</span></a></li>
+          <li class="active"><a>Hero level: <span id='charLevel'>1</span></a></li>
+        </ul>
+      </div>
     </div>
-    <!--<p>required Exp: <span id='requiredExp'>50</span></p>-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  </nav>
+<!-- game -->
+  <div class="container-fluid">
+    <div class="row">
+      <button type="button" class="btn btn-primary btn-row"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+      <button type="button" class="btn btn-primary btn-row"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+      <div class="col-md-12"><p>Minion level: <span id="minionLevel">1</span></p></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Minion HP: <span id="minionHP">5</span></p>
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" onclick="attack(dmg)">Attack | DMG <span id='dmg'>1</span></button>
+      <button type="button" class="btn btn-primary" onclick="upgradeMinion()">Upgrade Minion | $<span id='upgradeCost'>11</span></button>
+      <button type="button" class="btn btn-primary" onclick="buyWarrior()">Buy Warrior | $<span id='warriorCostID'>10</span></button>
+    </div>
+  </div>
+  <!--<p>required Exp: <span id='requiredExp'>50</span></p>-->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/game.js"></script>
-  </body>
+</body>
 </html>

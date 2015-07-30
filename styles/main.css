@@ -1,26 +1,47 @@
-.container-fluid {
-	background-color: #337ab7;
+.navbar {
+	background: #337ab7;
 }
 
-.navbar-brand p {
-	color: white;
+.navbar-inverse {
+    border-color: #337ab7;
+}
+
+.navbar-brand {
+    font-size: 18px !important;
+    color: #fff !important;
 }
 
 .navbar-default .navbar-text {
     color: white;
 }
 
-.navbar-collapse p {
-	padding: 1px;
-	margin-right: 10px;
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover {
+	background: #337ab7;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.open>a {
+	-webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .row {
 	text-align: center;
 }
 
-#exp-navbar {
-	color: white;
-	text-align: center;
-	padding: 10px;
+body {
+    cursor: default;
+    padding-top: 80px;
+    background: #eee;
+    font-weight: 400;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-row {
+	margin: 0px 10px;
 }

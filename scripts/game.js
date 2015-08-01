@@ -1,5 +1,5 @@
-var minionHP = 5;
 var minionLevel = 1;
+var minionHP = 10;
 var dmg = 1;
 var money = 0;
 var charExp = 0;
@@ -7,6 +7,8 @@ var lastExpRequirement = 10;
 var charLevel = 1;
 var expRequired = 25*charLevel*(1+charLevel);
 var warriors = 0;
+var count = 0;
+var lastLevelCleared = 0;
 
 function attack(dmg) {
 	minionHP = minionHP - dmg;
@@ -23,9 +25,10 @@ function buyWarrior() {
         updateHTML("money", money);
     };
     var nextCost = Math.floor(10 * Math.pow(1.1, warriors)); //works out the cost of the next cursor
-    updateHTML("warriorCostID", nextCost) ; //updates the cursor cost for the user
+    updateHTML("warriorCostID", nextCost); //updates the cursor cost for the user
 };
 
+/*
 function upgradeMinion() {
 	var minionUpgradeCost = Math.floor(10 * Math.pow(1.1, minionLevel));
 	if (money >= minionUpgradeCost) {
@@ -38,16 +41,17 @@ function upgradeMinion() {
 	var nextUpgradeCost = Math.floor(10 * Math.pow(1.1, minionLevel)); //works out the cost of the next cursor
     updateHTML("upgradeCost", nextUpgradeCost); //updates the cursor cost for the user
 };
+*/
 
 function checkMinion() {
 	if (minionHP <= 0) {
 		getReward();
 		spawnMonster();
 	};
-}
+};
 
 function spawnMonster() {
-	var maxhp = minionLevel * 5;
+	var maxhp = Math.floor((10 * (Math.pow(1.6, Math.min(minionLevel,140) - 1)) + Math.min(minionLevel,140) - 1 * (Math.pow(1.15, Math.max((minionLevel - 140),0)))));
 	expReward = minionLevel;
 	minionHP = maxhp;
 	updateHTML("minionHP", minionHP);
@@ -58,6 +62,7 @@ function getReward() {
 	money = money + calcMoneyDrop; //agrega el gold
 	var expReward = Math.floor(1.1 * minionLevel);
 	charExp = charExp + expReward;
+	levelCounter();
 	if (charExp >= expRequired) {
 		dmg = Math.floor(charLevel * 1.5);
 		charLevel++;
@@ -69,15 +74,48 @@ function getReward() {
 	};
 	updateHTML("money", money); //actualiza el valor al usuario
 	updateHTML("charExp", charExp); //actualiza el valor al usuario
+};
 
+function levelCounter() {
+	if (lastLevelCleared < minionLevel) {
+		count++;
+		updateHTML("countID", count);
+	};
+	if (count == 10) {
+				lastLevelCleared = minionLevel;
+				count = 0;
+				updateHTML("minionLevel", minionLevel);
+		};
+	};
+
+function levelNav(option) {
+	if (option == 'down') {
+		if (minionLevel > 1) {
+			updateHTML("countID", 10);
+			minionLevel--;
+			spawnMonster();
+			updateHTML("minionLevel", minionLevel);
+		};
+	};
+	if (option =='up') {
+		if (minionLevel == lastLevelCleared) {
+			updateHTML("countID", count);
+			minionLevel++;
+			spawnMonster();
+			updateHTML("minionLevel", minionLevel);
+		}	else if (minionLevel < lastLevelCleared) {
+				updateHTML("countID", 10);
+				minionLevel++;
+				spawnMonster();
+				updateHTML("minionLevel", minionLevel);
+		}
+	}
 };
 
 function updateHTML(elementID, value) {
 	document.getElementById(elementID).innerHTML = value;
-}
+};
 
 window.setInterval(function() {
-
-    attack(warriors);
-
+    attack((warriors*5));
 }, 1000);

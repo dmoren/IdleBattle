@@ -23,12 +23,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">money $<span id="money">0</span></a>
+        <a class="navbar-brand">Money $<span id="money">0</span></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a>warriors: <span id="warriorID">0</span></a></li>
-          <li class="active"><a>EXP: <span id='charExp'>0</span>/<span id='requiredExp'>50</span></a></li>
+          <li class="active"><a>Warriors: <span id="warriorID">0</span></a></li>
+          <li class="active"><a>Exp: <span id='charExp'>0</span>/<span id='requiredExp'>50</span></a></li>
           <li class="active"><a>Hero level: <span id='charLevel'>1</span></a></li>
         </ul>
       </div>
@@ -37,22 +37,23 @@
 <!-- game -->
   <div class="container-fluid">
     <div class="row">
-      <button type="button" class="btn btn-primary btn-row"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
-      <button type="button" class="btn btn-primary btn-row"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+      <button type="button" class="btn btn-primary btn-row" onclick="levelNav('down')"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+      <button type="button" class="btn btn-primary btn-row" onclick="levelNav('up')"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
       <div class="col-md-12"><p>Minion level: <span id="minionLevel">1</span></p></div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p>Minion HP: <span id="minionHP">5</span></p>
+        <p>Minion HP: <span id="minionHP">10</span></p>
+        <p>Minions killed: <span id="countID">0</span>/10</p>
       </div>
     </div>
     <div class="row">
       <button type="button" class="btn btn-primary" onclick="attack(dmg)">Attack | DMG <span id='dmg'>1</span></button>
-      <button type="button" class="btn btn-primary" onclick="upgradeMinion()">Upgrade Minion | $<span id='upgradeCost'>11</span></button>
+      <!-- <button type="button" class="btn btn-primary" onclick="upgradeMinion()">Upgrade Minion | $<span id='upgradeCost'>11</span></button> -->
       <button type="button" class="btn btn-primary" onclick="buyWarrior()">Buy Warrior | $<span id='warriorCostID'>10</span></button>
     </div>
   </div>
-  <!--<p>required Exp: <span id='requiredExp'>50</span></p>-->
+  <!-- <p>required Exp: <span id='requiredExp'>50</span></p> -->
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
